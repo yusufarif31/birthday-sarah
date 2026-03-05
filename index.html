@@ -11,7 +11,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(to bottom,#ffd6eb,#ffeef7);
+    background:linear-gradient(to bottom,#ffd6eb,#fff0f5);
     font-family:Arial, sans-serif;
     text-align:center;
     overflow:hidden;
@@ -20,7 +20,6 @@ body{
 #balloon{
     width:220px;
     height:270px;
-    background:#ff4da6;
     border-radius:50%;
     display:flex;
     justify-content:center;
@@ -36,7 +35,16 @@ body{
     transform:scale(0.9);
 }
 
-#message{
+.pop{
+    animation:popEffect 0.3s forwards;
+}
+
+@keyframes popEffect{
+    0%{transform:scale(1); opacity:1;}
+    100%{transform:scale(1.5); opacity:0;}
+}
+
+#content{
     display:none;
     animation:fadeIn 2s ease-in-out;
 }
@@ -45,6 +53,13 @@ body{
     from{opacity:0;}
     to{opacity:1;}
 }
+
+img{
+    width:250px;
+    border-radius:20px;
+    margin-top:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
 </style>
 </head>
 
@@ -52,26 +67,52 @@ body{
 
 <div id="balloon">1</div>
 
-<div id="message">
-    <h1 style="font-size:40px;">🎉 Happy Birthday, Sayang 🤍</h1>
-    <h2 style="font-size:50px;">23rd looks perfect on you.</h2>
+<div id="content">
+    <h1>🎉 Happy Birthday, Sayang 🤍</h1>
+    <h2>23rd looks perfect on you.</h2>
+
+    <!-- GANTI nama foto nanti -->
+    <img src="foto.jpg" alt="Our Photo">
+
+    <p style="max-width:500px; margin:auto; margin-top:20px;">
+        23 tahun kamu hadir di dunia ini, dan aku bersyukur semesta mempertemukan aku dengan kamu.
+        Terima kasih sudah jadi rumah paling nyaman, jadi alasan senyum paling sederhana,
+        dan jadi bagian terindah dari hariku.
+        Semoga semua yang kamu doakan satu per satu terwujud.
+        Aku selalu di sini, untuk kamu.
+    </p>
 </div>
 
 <script>
 let current = 1;
 let balloon = document.getElementById("balloon");
-let message = document.getElementById("message");
+let content = document.getElementById("content");
+
+function randomColor(){
+    const colors = ["#ff4da6","#ff944d","#4da6ff","#66cc66","#cc66ff","#ff6666","#00cccc"];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+balloon.style.background = randomColor();
 
 balloon.addEventListener("click", function(){
 
-    if(current < 25){
-        current++;
-        balloon.innerText = current;
-    } 
-    else {
-        balloon.style.display = "none";
-        message.style.display = "block";
-    }
+    balloon.classList.add("pop");
+
+    setTimeout(()=>{
+        balloon.classList.remove("pop");
+
+        if(current < 25){
+            current++;
+            balloon.innerText = current;
+            balloon.style.background = randomColor();
+        } 
+        else {
+            balloon.style.display = "none";
+            content.style.display = "block";
+        }
+
+    },300);
 
 });
 </script>
