@@ -31,10 +31,6 @@ body{
     transition:0.2s;
 }
 
-#balloon:active{
-    transform:scale(0.9);
-}
-
 .pop{
     animation:popEffect 0.3s forwards;
 }
@@ -71,22 +67,50 @@ img{
     <h1>🎉 Happy Birthday, Sayang 🤍</h1>
     <h2>23rd looks perfect on you.</h2>
 
-    <!-- GANTI nama foto nanti -->
     <img src="foto.jpg" alt="Our Photo">
 
     <p style="max-width:500px; margin:auto; margin-top:20px;">
-        23 tahun kamu hadir di dunia ini, dan aku bersyukur semesta mempertemukan aku dengan kamu.
-        Terima kasih sudah jadi rumah paling nyaman, jadi alasan senyum paling sederhana,
-        dan jadi bagian terindah dari hariku.
-        Semoga semua yang kamu doakan satu per satu terwujud.
-        Aku selalu di sini, untuk kamu.
+       Happy 23rd birthday, my favorite human, Sarah Salsabila Ahmad 🤍
+
+23 years of you being alive in this world, and somehow aku yg paling beruntung brow karena bisa kenal kamu sedekat ini wkwk (im win). Kadang aku masih suka mikir, how did I get this lucky? Dari yang awalnya cuma teman ngobrol random, jadi orang yang paling aku cari tiap hari mulai baru bangun sampek mauu tidur wkwk. Dari best friend sampek friend lvl +++
+
+Beb, masio kamu itu bukan pacar aku, secara technically yaa bukan pacar karena gapernah officially wkwk gak ada peresmian proyek, cuman perpanjang kontrak terusss, tapi kamu beneran spesial sayang sumpah :). Secapek capeknya aku yaa, kalo udah call sm kamu itu rasanya kek refresh, kek rehat buwanget eh wkwk. And honestly, that means everything to me.
+
+Di umur kamu yang ke 23 ini, tak kasih tau satu hal. I am so so proud of you. Proud of how strong you are even when you feel like you are not. Proud of how you keep going even when you are tired. Proud of your soft heart yang tetap baik walaupun dunia kadang nggak selalu lembut sama kamu.
+
+Terima kasih ya sayang udah percaya bwanget sama aku. Udah jadiin aku safe place kamu buat sambat, cerita, nangis, overthinking, dan semua hal yang bahkan nggak semua orang tau tentang kamu. Buat aku, itu bukan hal kecil. Itu privilege. Dan aku nggk nganggep itu hal yg biasa aja.
+
+Kita nggak pernah rencanain ini kan wkwk? sumpah nggk pernah duduk terus bilang "nanti kita jatuh cinta ya" wasek wkwk😭,  It just happened. Pelan pelan apa katamu (baby step) kamune ae yg buwanya denialnya yaa wkwk tapi itsokeyy makasih ya udah sabar selama masa perekrutan isi heart nya ituu wkwkw, berapa banyak pertimbangan, berapa banyak yg di pikirkan, dan berapa buwanyak yg di rasakan and finally bisa di acc akunya wkwkw. Dari ketawa bareng, cerita receh, di kaplok my head masio dibalik kata helm an tapi panggah jek kroso ya wkwk, selow itu peletnya wkwk, terus saling support tanpa sadar, sampai akhirnya ada satu momen dimana semuanya terasa beda:), TARAA... MEYY AKU TIBAE SENENG UCUP😭 wkwkw, itu finall wes beb, oiyaa btw aku minta maaf yaa kadang sifat dan sikapku sering buat kamu ngerasain mix feel banget, aku juga minta maaf kalo sering buat kamu nangis, buat kamu ovt, but i'm glad it's with you💕🥹
+
+Still my best friend.
+Now my love.
+And if God allows, my forever btw aamiin💗
+
+Di umur 23 ini aku doain kamu bukan cuma bahagia, tapi damai. Damai sama diri kamu sendiri. Damai sama masa lalu kamu. Damai sama semua hal yang lagi kamu perjuangin❤️‍🔥. Semoga semua mimpi kamu pelan pelan jadi nyata aamiin. Semoga kamu selalu dikelilingi orang yang tulus yg sabar ngadepin yg visualnya aja kek umur 63 an padahal sebenernya behind all that yaa sek still bocil unda undi sama ica ya wkw apa sama imane hahaha🩵. Semoga kamu selalu ngerasa dicintai, terutama sm aku yg jelas wkwkw jyakhhh🤍🥰
+
+And if one day kalo km nanyak ke aku, kamu yakin sama aku? (masio tiap malam ada kata rutinitas "kamu sayang aku ngga wkwk")
+Jawabanmya tetep akan selalu sama beb.
+It's you. It's always you🩷💗
+
+Sekali lagi Happy 23rd birthday, sayang💖
+Thank you for trusting me with your heart💗
+Thank you for letting me love you💝
+And thank you for choosing me every single day💕
+
+I’m here. And I’m not going anywhere 🤍
     </p>
 </div>
+
+<!-- Audio -->
+<audio id="popSound" src="pop.mp3"></audio>
+<audio id="bgMusic" src="perfect.mp3"></audio>
 
 <script>
 let current = 1;
 let balloon = document.getElementById("balloon");
 let content = document.getElementById("content");
+let popSound = document.getElementById("popSound");
+let bgMusic = document.getElementById("bgMusic");
 
 function randomColor(){
     const colors = ["#ff4da6","#ff944d","#4da6ff","#66cc66","#cc66ff","#ff6666","#00cccc"];
@@ -96,6 +120,9 @@ function randomColor(){
 balloon.style.background = randomColor();
 
 balloon.addEventListener("click", function(){
+
+    popSound.currentTime = 0;
+    popSound.play();
 
     balloon.classList.add("pop");
 
@@ -110,6 +137,7 @@ balloon.addEventListener("click", function(){
         else {
             balloon.style.display = "none";
             content.style.display = "block";
+            bgMusic.play();
         }
 
     },300);
