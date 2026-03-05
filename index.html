@@ -9,7 +9,7 @@ body{
     margin:0;
     font-family: Arial, sans-serif;
     text-align:center;
-    background: linear-gradient(to bottom,#ffd1dc,#ff9eb5);
+    background: linear-gradient(to bottom,#ffdde1,#fca1c1,#ff85a1);
     overflow-x:hidden;
 }
 
@@ -19,17 +19,17 @@ h1{
 }
 
 #balloon{
-    width:220px;
-    height:270px;
+    width:120px;
+    height:160px;
     border-radius:50%;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:70px;
+    font-size:50px;
     color:white;
     cursor:pointer;
     position:relative;
-    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
     margin:50px auto;
     transition:0.2s;
 }
@@ -89,11 +89,16 @@ h1{
     border-radius:20px;
     backdrop-filter: blur(10px);
     text-align:left;
+    line-height:1.6;
 }
 </style>
 </head>
 
 <body>
+
+<audio id="bgMusic" loop autoplay>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/28/audio_2f5b6b28de.mp3?filename=soft-melody-1100.mp3" type="audio/mpeg">
+</audio>
 
 <div id="balloon">1</div>
 
@@ -102,7 +107,7 @@ let current = 1;
 let balloon = document.getElementById("balloon");
 let total = 25;
 
-/* suara pop online */
+/* suara pop */
 let popSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-balloon-pop-2357.mp3");
 
 function randomColor(){
@@ -152,30 +157,30 @@ function showFinalContent(){
         <div class="long-message">
 <p>
 23 years of you being alive in this world, and somehow aku yg paling beruntung brow karena bisa kenal kamu sedekat ini wkwk (im win). Kadang aku masih suka mikir, how did I get this lucky? Dari yang awalnya cuma teman ngobrol random, jadi orang yang paling aku cari tiap hari mulai baru bangun sampek mauu tidur wkwk. Dari best friend sampek friend lvl +++  
-
+<br><br>
 Beb, masio kamu itu bukan pacar aku, secara technically yaa bukan pacar karena gapernah officially wkwk gak ada peresmian proyek, cuman perpanjang kontrak terusss, tapi kamu beneran spesial sayang sumpah :). Secapek capeknya aku yaa, kalo udah call sm kamu itu rasanya kek refresh, kek rehat buwanget eh wkwk. And honestly, that means everything to me.  
-
+<br><br>
 Di umur kamu yang ke 23 ini, tak kasih tau satu hal. I am so so proud of you. Proud of how strong you are even when you feel like you are not. Proud of how you keep going even when you are tired. Proud of your soft heart yang tetap baik walaupun dunia kadang nggak selalu lembut sama kamu.  
-
+<br><br>
 Terima kasih ya sayang udah percaya bwanget sama aku. Udah jadiin aku safe place kamu buat sambat, cerita, nangis, overthinking, dan semua hal yang bahkan nggak semua orang tau tentang kamu. Buat aku, itu bukan hal kecil. Itu privilege. Dan aku nggk nganggep itu hal yg biasa aja.  
-
+<br><br>
 Kita nggak pernah rencanain ini kan wkwk? sumpah nggk pernah duduk terus bilang "nanti kita jatuh cinta ya" wasek wkwk😭,  It just happened. Pelan pelan apa katamu (baby step) kamune ae yg buwanya denialnya yaa wkwk tapi itsokeyy makasih ya udah sabar selama masa perekrutan isi heart nya ituu wkwkw, berapa banyak pertimbangan, berapa banyak yg di pikirkan, dan berapa buwanyak yg di rasakan and finally bisa di acc akunya wkwkw. Dari ketawa bareng, cerita receh, di kaplok my head masio dibalik kata helm an tapi panggah jek kroso ya wkwk, selow itu peletnya wkwk, terus saling support tanpa sadar, sampai akhirnya ada satu momen dimana semuanya terasa beda:), TARAA... MEYY AKU TIBAE SENENG UCUP😭 wkwkw, itu finall wes beb, oiyaa btw aku minta maaf yaa kadang sifat dan sikapku sering buat kamu ngerasain mix feel banget, aku juga minta maaf kalo sering buat kamu nangis, buat kamu ovt, but i'm glad it's with you💕🥹  
-
+<br><br>
 Still my best friend.  
 Now my love.  
 And if God allows, my forever btw aamiin💗  
-
+<br><br>
 Di umur 23 ini aku doain kamu bukan cuma bahagia, tapi damai. Damai sama diri kamu sendiri. Damai sama masa lalu kamu. Damai sama semua hal yang lagi kamu perjuangin❤️‍🔥. Semoga semua mimpi kamu pelan pelan jadi nyata aamiin. Semoga kamu selalu dikelilingi orang yang tulus yg sabar ngadepin yg visualnya aja kek umur 63 an padahal sebenernya behind all that yaa sek still bocil unda undi sama ica ya wkw apa sama imane hahaha🩵. Semoga kamu selalu ngerasa dicintai, terutama sm aku yg jelas wkwkw jyakhhh🤍🥰  
-
+<br><br>
 And if one day kalo km nanyak ke aku, kamu yakin sama aku? (masio tiap malam ada kata rutinitas "kamu sayang aku ngga wkwk")  
 Jawabanmya tetep akan selalu sama beb.  
 It's you. It's always you🩷💗  
-
+<br><br>
 Sekali lagi Happy 23rd birthday, sayang💖  
 Thank you for trusting me with your heart💗  
 Thank you for letting me love you💝  
 And thank you for choosing me every single day💕  
-
+<br><br>
 I’m here. And I’m not going anywhere 🤍
 </p>
         </div>
