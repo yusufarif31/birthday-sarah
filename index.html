@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Happy 23rd Sarah 🤍</title>
+<title>Happy 23rd Birthday Sarah 🤍</title>
 
 <style>
 body{
@@ -18,28 +18,51 @@ h1{
     margin-top:40px;
 }
 
-.balloon{
-    width:80px;
-    height:100px;
+#balloon{
+    width:220px;
+    height:270px;
     border-radius:50%;
-    position:absolute;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:70px;
+    color:white;
     cursor:pointer;
-    animation: float 3s ease-in-out infinite;
+    position:relative;
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+    margin:50px auto;
+    transition:0.2s;
 }
 
-.string{
-    width:2px;
-    height:60px;
-    background:white;
+#balloon::after{
+    content:"";
     position:absolute;
-    top:100px;
+    bottom:-40px;
     left:50%;
+    width:2px;
+    height:40px;
+    background:#555;
+    transform:translateX(-50%);
 }
 
-@keyframes float{
-    0%{transform:translateY(0px);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0px);}
+.pop{
+    animation:popEffect 0.3s forwards;
+}
+
+@keyframes popEffect{
+    0%{transform:scale(1); opacity:1;}
+    100%{transform:scale(1.5); opacity:0;}
+}
+
+#nextBtn{
+    margin-top:30px;
+    font-size:24px;
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:white;
+    color:#ff4d6d;
 }
 
 .final-section{
@@ -56,14 +79,15 @@ h1{
 }
 
 .long-message{
-    max-height:300px;
+    max-height:400px;
     overflow-y:auto;
     margin:30px auto;
     padding:20px;
     width:90%;
-    max-width:600px;
+    max-width:700px;
     background:rgba(255,255,255,0.2);
     border-radius:20px;
+    backdrop-filter: blur(10px);
     text-align:left;
 }
 </style>
@@ -71,77 +95,93 @@ h1{
 
 <body>
 
-<h1>Pecahin 25 balonnya yaa 🎈</h1>
+<div id="balloon">1</div>
 
 <script>
-let count = 0;
+let current = 1;
+let balloon = document.getElementById("balloon");
 let total = 25;
 
-function createBalloon(){
-    if(count >= total){
-        showFinal();
-        return;
-    }
-
-    let balloon = document.createElement("div");
-    balloon.className = "balloon";
-    balloon.style.background = randomColor();
-    balloon.style.top = Math.random()*400 + 100 + "px";
-    balloon.style.left = Math.random()*300 + 50 + "px";
-
-    let string = document.createElement("div");
-    string.className = "string";
-    balloon.appendChild(string);
-
-    balloon.onclick = function(){
-        balloon.remove();
-        count++;
-        createBalloon();
-    };
-
-    document.body.appendChild(balloon);
-}
+/* suara pop online */
+let popSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-balloon-pop-2357.mp3");
 
 function randomColor(){
     const colors = ["#ff4d6d","#ff85a1","#f72585","#b5179e","#7209b7","#560bad","#480ca8","#3a0ca3","#4361ee","#4895ef"];
     return colors[Math.floor(Math.random()*colors.length)];
 }
 
-function showFinal(){
+balloon.style.background = randomColor();
+
+balloon.addEventListener("click", function(){
+    popSound.currentTime = 0;
+    popSound.play();
+    balloon.classList.add("pop");
+
+    setTimeout(()=>{
+        balloon.classList.remove("pop");
+
+        if(current < total){
+            current++;
+            balloon.innerText = current;
+            balloon.style.background = randomColor();
+        } else {
+            balloon.style.display = "none";
+            showMessage();
+        }
+    },300);
+});
+
+function showMessage(){
     document.body.innerHTML = `
     <div class="final-section">
         <h1>23rd looks perfect on you 🤍</h1>
+        <button id="nextBtn">Selanjutnya →</button>
+    </div>
+    `;
+
+    document.getElementById("nextBtn").addEventListener("click", showFinalContent);
+}
+
+function showFinalContent(){
+    document.body.innerHTML = `
+    <div class="final-section">
+        <h1>Happy 23rd birthday, my favorite human, Sarah Salsabila Ahmad 🤍</h1>
 
         <img src="foto bareng.jpg" class="photo">
 
         <div class="long-message">
-        <p>
-Happy 23rd birthday, my favorite human, Sarah Salsabila Ahmad 🤍
+<p>
+23 years of you being alive in this world, and somehow aku yg paling beruntung brow karena bisa kenal kamu sedekat ini wkwk (im win). Kadang aku masih suka mikir, how did I get this lucky? Dari yang awalnya cuma teman ngobrol random, jadi orang yang paling aku cari tiap hari mulai baru bangun sampek mauu tidur wkwk. Dari best friend sampek friend lvl +++  
 
-23 years of you being alive in this world, dan aku yg paling beruntung bisa kenal kamu sedekat ini.
+Beb, masio kamu itu bukan pacar aku, secara technically yaa bukan pacar karena gapernah officially wkwk gak ada peresmian proyek, cuman perpanjang kontrak terusss, tapi kamu beneran spesial sayang sumpah :). Secapek capeknya aku yaa, kalo udah call sm kamu itu rasanya kek refresh, kek rehat buwanget eh wkwk. And honestly, that means everything to me.  
 
-Dari best friend… jadi love.  
+Di umur kamu yang ke 23 ini, tak kasih tau satu hal. I am so so proud of you. Proud of how strong you are even when you feel like you are not. Proud of how you keep going even when you are tired. Proud of your soft heart yang tetap baik walaupun dunia kadang nggak selalu lembut sama kamu.  
+
+Terima kasih ya sayang udah percaya bwanget sama aku. Udah jadiin aku safe place kamu buat sambat, cerita, nangis, overthinking, dan semua hal yang bahkan nggak semua orang tau tentang kamu. Buat aku, itu bukan hal kecil. Itu privilege. Dan aku nggk nganggep itu hal yg biasa aja.  
+
+Kita nggak pernah rencanain ini kan wkwk? sumpah nggk pernah duduk terus bilang "nanti kita jatuh cinta ya" wasek wkwk😭,  It just happened. Pelan pelan apa katamu (baby step) kamune ae yg buwanya denialnya yaa wkwk tapi itsokeyy makasih ya udah sabar selama masa perekrutan isi heart nya ituu wkwkw, berapa banyak pertimbangan, berapa banyak yg di pikirkan, dan berapa buwanyak yg di rasakan and finally bisa di acc akunya wkwkw. Dari ketawa bareng, cerita receh, di kaplok my head masio dibalik kata helm an tapi panggah jek kroso ya wkwk, selow itu peletnya wkwk, terus saling support tanpa sadar, sampai akhirnya ada satu momen dimana semuanya terasa beda:), TARAA... MEYY AKU TIBAE SENENG UCUP😭 wkwkw, itu finall wes beb, oiyaa btw aku minta maaf yaa kadang sifat dan sikapku sering buat kamu ngerasain mix feel banget, aku juga minta maaf kalo sering buat kamu nangis, buat kamu ovt, but i'm glad it's with you💕🥹  
+
 Still my best friend.  
 Now my love.  
-And if God allows, my forever 🤍  
+And if God allows, my forever btw aamiin💗  
 
-Di umur 23 ini aku doain kamu bukan cuma bahagia, tapi damai.  
-Damai sama diri kamu sendiri. Damai sama masa lalu kamu.
+Di umur 23 ini aku doain kamu bukan cuma bahagia, tapi damai. Damai sama diri kamu sendiri. Damai sama masa lalu kamu. Damai sama semua hal yang lagi kamu perjuangin❤️‍🔥. Semoga semua mimpi kamu pelan pelan jadi nyata aamiin. Semoga kamu selalu dikelilingi orang yang tulus yg sabar ngadepin yg visualnya aja kek umur 63 an padahal sebenernya behind all that yaa sek still bocil unda undi sama ica ya wkw apa sama imane hahaha🩵. Semoga kamu selalu ngerasa dicintai, terutama sm aku yg jelas wkwkw jyakhhh🤍🥰  
 
-And if one day kamu nanya, kamu yakin sama aku?  
-Jawabannya akan selalu sama.  
+And if one day kalo km nanyak ke aku, kamu yakin sama aku? (masio tiap malam ada kata rutinitas "kamu sayang aku ngga wkwk")  
+Jawabanmya tetep akan selalu sama beb.  
+It's you. It's always you🩷💗  
 
-It's you. It's always you 💕
+Sekali lagi Happy 23rd birthday, sayang💖  
+Thank you for trusting me with your heart💗  
+Thank you for letting me love you💝  
+And thank you for choosing me every single day💕  
 
-Sekali lagi Happy 23rd birthday, sayang 💖  
 I’m here. And I’m not going anywhere 🤍
-        </p>
+</p>
         </div>
     </div>
     `;
 }
-
-createBalloon();
 </script>
 
 </body>
