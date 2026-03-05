@@ -1,176 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 23rd Birthday 🤍</title>
+<title>Happy Birthday 🤍</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#1e3c72,#2a5298);
-    text-align: center;
-    color: white;
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(to bottom,#ffd6eb,#ffeef7);
+    font-family:Arial, sans-serif;
+    text-align:center;
+    overflow:hidden;
 }
 
-.balloon {
-    width: 80px;
-    height: 110px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: -150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    cursor: pointer;
-    animation: floatUp 8s linear forwards;
+#balloon{
+    width:220px;
+    height:270px;
+    background:#ff4da6;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:70px;
+    color:white;
+    cursor:pointer;
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+    transition:0.2s;
 }
 
-.balloon::after {
-    content: "";
-    position: absolute;
-    bottom: -35px;
-    width: 2px;
-    height: 35px;
-    background: white;
+#balloon:active{
+    transform:scale(0.9);
 }
 
-@keyframes floatUp {
-    from { bottom: -150px; }
-    to { bottom: 110vh; }
+#message{
+    display:none;
+    animation:fadeIn 2s ease-in-out;
 }
 
-#finalMessage {
-    display: none;
-    padding: 40px 20px;
-    animation: fadeIn 2s ease forwards;
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
 }
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-img {
-    width: 220px;
-    border-radius: 20px;
-    margin: 20px 0;
-    box-shadow: 0 0 20px rgba(255,255,255,0.4);
-}
-
-p {
-    max-width: 800px;
-    margin: auto;
-    line-height: 1.7;
-    text-align: left;
-}
-
 </style>
 </head>
+
 <body>
 
-<audio id="music" loop>
-<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
+<div id="balloon">1</div>
 
-<div id="finalMessage">
-<h1>23rd Birthday, Sayang 🤍</h1>
-
-<img src="foto.jpg" alt="Foto Kita">
-
-<p>
-Happy 23rd birthday, my favorite human, Sarah Salsabila Ahmad 🤍<br><br>
-
-23 years of you being alive in this world, and somehow aku yg paling beruntung karena bisa kenal kamu sedekat ini wkwk (im win). Kadang aku masih suka mikir, how did I get this lucky?<br><br>
-
-Dari yang awalnya cuma teman ngobrol random, jadi orang yang paling aku cari tiap hari mulai baru bangun sampek mau tidur. Dari best friend sampek friend lvl +++ 🤍<br><br>
-
-Masio kamu itu bukan pacar aku secara technically (karena gapernah officially wkwk, gak ada peresmian proyek cuma perpanjang kontrak terusss), tapi kamu beneran spesial sayang sumpah :).<br><br>
-
-Secapek capeknya aku, kalo udah call sama kamu itu rasanya kayak refresh. Kayak rehat banget. And honestly, that means everything to me.<br><br>
-
-Di umur kamu yang ke 23 ini, I am so so proud of you. Proud of how strong you are even when you feel like you are not. Proud of how you keep going even when you are tired. Proud of your soft heart yang tetap baik walaupun dunia nggak selalu lembut sama kamu.<br><br>
-
-Terima kasih ya sayang udah percaya banget sama aku. Udah jadiin aku safe place kamu buat sambat, cerita, nangis, overthinking, dan semua hal yang bahkan nggak semua orang tau tentang kamu. Buat aku, itu privilege. Dan aku nggak nganggep itu hal biasa.<br><br>
-
-Kita nggak pernah rencanain ini kan wkwk? It just happened. Pelan pelan (baby step katanya), walaupun denialnya kamu luar biasa wkwk tapi its okay. Makasih ya udah sabar selama masa perekrutan isi heart itu wkwk 😭.<br><br>
-
-Still my best friend.  
-Now my love.  
-And if God allows, my forever 🤍 aamiin.<br><br>
-
-Di umur 23 ini aku doain kamu bukan cuma bahagia, tapi damai. Damai sama diri kamu sendiri. Damai sama masa lalu kamu. Damai sama semua hal yang lagi kamu perjuangin ❤️‍🔥<br><br>
-
-Semoga semua mimpi kamu pelan pelan jadi nyata. Semoga kamu selalu ngerasa dicintai, terutama sama aku yang jelas wkwk 🤍🥰<br><br>
-
-And if one day kamu nanya ke aku, kamu yakin sama aku?  
-Jawabannya akan selalu sama beb —  
-It’s you. It’s always you 🩷💗<br><br>
-
-Sekali lagi Happy 23rd birthday, sayang 💖  
-Thank you for trusting me with your heart 💗  
-Thank you for letting me love you 💝  
-And thank you for choosing me every single day 💕<br><br>
-
-I’m here. And I’m not going anywhere 🤍
-</p>
+<div id="message">
+    <h1 style="font-size:40px;">🎉 Happy Birthday, Sayang 🤍</h1>
+    <h2 style="font-size:50px;">23rd looks perfect on you.</h2>
 </div>
 
 <script>
-let totalBalon = 25;
-let balonPecah = 0;
+let current = 1;
+let balloon = document.getElementById("balloon");
+let message = document.getElementById("message");
 
-function buatBalon() {
-    for (let i = 1; i <= totalBalon; i++) {
-        let balon = document.createElement("div");
-        balon.className = "balloon";
-        balon.innerText = i;
-        balon.style.left = Math.random() * 90 + "%";
-        balon.style.background = `hsl(${Math.random() * 360},70%,60%)`;
+balloon.addEventListener("click", function(){
 
-        balon.onclick = function() {
-            balon.innerHTML = "💥";
-            setTimeout(() => { balon.remove(); }, 200);
-            balonPecah++;
-
-            if (balonPecah === totalBalon) {
-                document.getElementById("finalMessage").style.display = "block";
-                document.getElementById("music").play();
-                startConfetti();
-            }
-        }
-
-        document.body.appendChild(balon);
+    if(current < 25){
+        current++;
+        balloon.innerText = current;
+    } 
+    else {
+        balloon.style.display = "none";
+        message.style.display = "block";
     }
-}
 
-function startConfetti() {
-    for(let i=0;i<150;i++){
-        let conf = document.createElement("div");
-        conf.style.position="fixed";
-        conf.style.width="5px";
-        conf.style.height="10px";
-        conf.style.background=`hsl(${Math.random()*360},100%,50%)`;
-        conf.style.top="-10px";
-        conf.style.left=Math.random()*100+"%";
-        conf.style.animation=`fall ${Math.random()*3+2}s linear`;
-        document.body.appendChild(conf);
-    }
-}
-
-document.head.insertAdjacentHTML("beforeend", `
-<style>
-@keyframes fall {
-    to { transform: translateY(110vh); }
-}
-</style>
-`);
-
-buatBalon();
+});
 </script>
 
 </body>
